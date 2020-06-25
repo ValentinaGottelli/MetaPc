@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <a routerLink="/">{{ appName }}</a>
+  <span class="fill-remaining-space"></span>
+  <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
+    <button mat-button>Administrador</button>
+  </a>
+
+  <a routerLink="/about" routerLinkActive="active">
+    <button mat-button>Informacion</button>
+  </a>
+
+  <a routerLink="/wizard" routerLinkActive="active">
+    <button mat-button>Arma tu pc</button>
+  </a>
+
+  <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
+    <button mat-button>Cerrar Sesion</button>
+  </a>
+
+  <ng-template #showLogin>
+    <a routerLink="/login" routerLinkActive="active">
+      <button mat-button>Ingresar</button>
+    </a>
+  </ng-template>
+</mat-toolbar>
