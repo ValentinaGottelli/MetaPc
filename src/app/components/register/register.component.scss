@@ -1,0 +1,46 @@
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+  
+  mat-card-title,
+  mat-card-content {
+    display: grid;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+  }
+
+  .example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+
+  .box{
+    margin-left: auto;
+    margin-right: auto; 
+    display: table;
+  }
+
+  .boton{
+  padding: 8px 25px;;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 130px;
+  text-align: center;
+
+  }

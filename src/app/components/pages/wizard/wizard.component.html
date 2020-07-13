@@ -1,0 +1,66 @@
+
+
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>AMD/Intel</ng-template>
+        <mat-form-field>
+          <mat-label>Marca</mat-label>
+          <mat-select [formControl]="toppings" (selectionChange)="getMothers()"  >
+            <mat-select-trigger>
+              {{toppings.value ? toppings.value[0] : ''}}
+              <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}}) 
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div seleccion=toppings.value>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Mother</ng-template>
+        <div>
+          <!-- mostrar mothers intel-->
+          <div  class="container" *ngIf="post$ | async; else loading">
+            <mat-card class="post-card" *ngFor="let post of post$ | async">
+              <img matCardImage class="align-center" [src]="post.imagePost" />
+              <mat-card-content>
+                <mat-card-title>
+                  {{ post.titlePost }}
+                </mat-card-title>
+                <p class="content">
+                  {{ post.contentPost }}
+                </p>
+                <button>cac</button>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <ng-template #loading>
+            <div class="container-spinner">
+              <mat-spinner></mat-spinner>
+            </div>
+          </ng-template>
+          
+        </div>
+       
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+

@@ -1,0 +1,49 @@
+<!--<section id="register" class="mb-5 mt-5">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+            <div class="card_register">
+              <div class="card">
+                <div class="card-body text-center">
+                  <form #formRegister="ngForm" (ngSubmit)="onAddUser()">
+                    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+                    <div class="alert alert-danger" role="alert" *ngIf="isError">
+                      {{msgError}}
+                    </div>
+                    <div class="form-group">
+                      <input type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email" required minlength="8">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="password" required minlength="5"
+                          maxlength="10">
+                      </div>  
+                      </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      -->
+
+      <mat-card class="box">
+        <mat-card-title>Register</mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="RegisterForm" (ngSubmit)="onRegister()">
+          <mat-form-field appearance="fill">
+            <mat-label for="email">Enter your email</mat-label>
+            <input type="email" class="form-control" matInput placeholder="pat@example.com" formControlName="email" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label for="password">Enter your password</mat-label>
+            <input type="password" class="form-control" matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <button type="submit" class="boton" mat-raised-button color="primary">Registrarse</button>
+        </form>
+          <div class="form-group">
+            <p>Tenes una cuenta?<a [routerLink]="['/login']">Inicia Sesion</a></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
