@@ -5,4 +5,5 @@ export interface PostI {
   id?: string;
   tagsPost: string;
   fileRef?: string;
+  socketPost: string;
 }

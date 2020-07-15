@@ -17,5 +17,8 @@
     <mat-chip *ngFor="let tag of post.tagsPost" [ngClass]="tag">
       {{ tag }}
     </mat-chip>
+    <mat-chip *ngFor="let tag of post.socketPost" [ngClass]="tag">
+      {{ tag }}
+    </mat-chip>
   </mat-chip-list>
 </mat-card-actions>

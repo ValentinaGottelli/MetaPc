@@ -22,6 +22,7 @@ export class EditPostComponent implements OnInit {
     contentPost: new FormControl('', Validators.required),
     tagsPost: new FormControl('', Validators.required),
     imagePost: new FormControl('', Validators.required),
+    socketPost: new FormControl('',Validators.required),
     
   });
 
@@ -50,6 +51,7 @@ export class EditPostComponent implements OnInit {
       titlePost: this.post.titlePost,
       contentPost: this.post.contentPost,
       tagsPost: this.post.tagsPost,
+      socketPost: this.post.socketPost,
       
 
     });

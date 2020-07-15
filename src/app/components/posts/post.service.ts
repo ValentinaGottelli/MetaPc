@@ -70,6 +70,7 @@ export class PostService {
       imagePost: this.downloadURL,
       fileRef: this.filePath,
       tagsPost: post.tagsPost,
+      socketPost: post.socketPost,
     };
 
     if (post.id) {

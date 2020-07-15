@@ -17,7 +17,7 @@ import { ModalComponent } from './../modal/modal.component';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['titlePost', 'tagsPost', 'actions'];
+  displayedColumns: string[] = ['titlePost', 'tagsPost', 'actions',];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
